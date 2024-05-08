@@ -12,7 +12,7 @@ done
 ## make sliding windows for genome
 ln -s ../../data/00ref/dmel-all-chromosome-r6.46.fasta ./
 samtools faidx dmel-all-chromosome-r6.46.fasta
-bedtools makewindows -g dmel-all-chromosome-r6.46.fasta.fai -w 10000 -s 5000 >w10000_s5000.bed
+bedtools makewindows -g dmel-all-chromosome-r6.46.fasta.fai -w 100000 -s 50000 >w100000_s50000.bed
 
 
 ## count reads on sliding window and get paired-ends that are from 2L,2R,3L,3R,4,X,and Y chromosomes
@@ -22,7 +22,7 @@ do
     bedtools bamtobed -i $i >$file.map_2_diff_chroms.bed
     awk '{if($1=="2L" || $1=="2R" || $1=="3L" || $1=="3R" || $1=="4" || $1=="X" || $1=="Y")print}' $file.map_2_diff_chroms.bed|cut -f4|sed 's#/.*$##g'|sort|uniq -c|awk '{if($1==2)print $2}' >$file.filter.reads.txt
     grep -f $file.filter.reads.txt $file.map_2_diff_chroms.bed > $file.filter.bed
-    bedtools intersect -a ../w10000_s5000.bed -b $file.filter.bed -bed -c >$file.w10000_s5000.txt
+    bedtools intersect -a ../w100000_s50000.bed -b $file.filter.bed -bed -c >$file.w100000_s50000.txt
     awk 'BEGIN{OFS="\t"}{print $4,$1,$2,$3}' $file.filter.bed|sed 's#/1##g;s#/2##g' |sort -k1,1>$file.filter.txt
 done
 

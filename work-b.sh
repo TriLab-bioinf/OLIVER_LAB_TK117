@@ -1,15 +1,14 @@
 #swarm 1:
-mkdir BM-1; configManta.py --bam /data/wangy80/TK117/results/03map_reads2/BM-1.bam --referenceFasta /data/wangy80/TK117/data/00ref/dmel-all-chromosome-r6.46.fasta --runDir BM-1
-mkdir BM-21; configManta.py --bam /data/wangy80/TK117/results/03map_reads2/BM-21.bam --referenceFasta /data/wangy80/TK117/data/00ref/dmel-all-chromosome-r6.46.fasta --runDir BM-21
-mkdir BM-24; configManta.py --bam /data/wangy80/TK117/results/03map_reads2/BM-24.bam --referenceFasta /data/wangy80/TK117/data/00ref/dmel-all-chromosome-r6.46.fasta --runDir BM-24
-mkdir BM-3; configManta.py --bam /data/wangy80/TK117/results/03map_reads2/BM-3.bam --referenceFasta /data/wangy80/TK117/data/00ref/dmel-all-chromosome-r6.46.fasta --runDir BM-3
-mkdir BM-46; configManta.py --bam /data/wangy80/TK117/results/03map_reads2/BM-46.bam --referenceFasta /data/wangy80/TK117/data/00ref/dmel-all-chromosome-r6.46.fasta --runDir BM-46
-mkdir BM-4; configManta.py --bam /data/wangy80/TK117/results/03map_reads2/BM-4.bam --referenceFasta /data/wangy80/TK117/data/00ref/dmel-all-chromosome-r6.46.fasta --runDir BM-4
-mkdir BM-5; configManta.py --bam /data/wangy80/TK117/results/03map_reads2/BM-5.bam --referenceFasta /data/wangy80/TK117/data/00ref/dmel-all-chromosome-r6.46.fasta --runDir BM-5
-mkdir BM-6; configManta.py --bam /data/wangy80/TK117/results/03map_reads2/BM-6.bam --referenceFasta /data/wangy80/TK117/data/00ref/dmel-all-chromosome-r6.46.fasta --runDir BM-6
-mkdir BM-7; configManta.py --bam /data/wangy80/TK117/results/03map_reads2/BM-7.bam --referenceFasta /data/wangy80/TK117/data/00ref/dmel-all-chromosome-r6.46.fasta --runDir BM-7
-mkdir BM-S; configManta.py --bam /data/wangy80/TK117/results/03map_reads2/BM-S.bam --referenceFasta /data/wangy80/TK117/data/00ref/dmel-all-chromosome-r6.46.fasta --runDir BM-S
-
+mkdir BM-1; configManta.py --bam /data/wangy80/TK117/results/03map_reads2/BM-1.bam --referenceFasta /data/wangy80/TK117/data/00ref/Drosophila_melanogaster.BDGP6.46.dna_rm.toplevel.fa --runDir BM-1
+mkdir BM-21; configManta.py --bam /data/wangy80/TK117/results/03map_reads2/BM-21.bam --referenceFasta /data/wangy80/TK117/data/00ref/Drosophila_melanogaster.BDGP6.46.dna_rm.toplevel.fa --runDir BM-21
+mkdir BM-24; configManta.py --bam /data/wangy80/TK117/results/03map_reads2/BM-24.bam --referenceFasta /data/wangy80/TK117/data/00ref/Drosophila_melanogaster.BDGP6.46.dna_rm.toplevel.fa --runDir BM-24
+mkdir BM-3; configManta.py --bam /data/wangy80/TK117/results/03map_reads2/BM-3.bam --referenceFasta /data/wangy80/TK117/data/00ref/Drosophila_melanogaster.BDGP6.46.dna_rm.toplevel.fa --runDir BM-3
+mkdir BM-46; configManta.py --bam /data/wangy80/TK117/results/03map_reads2/BM-46.bam --referenceFasta /data/wangy80/TK117/data/00ref/Drosophila_melanogaster.BDGP6.46.dna_rm.toplevel.fa --runDir BM-46
+mkdir BM-4; configManta.py --bam /data/wangy80/TK117/results/03map_reads2/BM-4.bam --referenceFasta /data/wangy80/TK117/data/00ref/Drosophila_melanogaster.BDGP6.46.dna_rm.toplevel.fa --runDir BM-4
+mkdir BM-5; configManta.py --bam /data/wangy80/TK117/results/03map_reads2/BM-5.bam --referenceFasta /data/wangy80/TK117/data/00ref/Drosophila_melanogaster.BDGP6.46.dna_rm.toplevel.fa --runDir BM-5
+mkdir BM-6; configManta.py --bam /data/wangy80/TK117/results/03map_reads2/BM-6.bam --referenceFasta /data/wangy80/TK117/data/00ref/Drosophila_melanogaster.BDGP6.46.dna_rm.toplevel.fa --runDir BM-6
+mkdir BM-7; configManta.py --bam /data/wangy80/TK117/results/03map_reads2/BM-7.bam --referenceFasta /data/wangy80/TK117/data/00ref/Drosophila_melanogaster.BDGP6.46.dna_rm.toplevel.fa --runDir BM-7
+mkdir BM-S; configManta.py --bam /data/wangy80/TK117/results/03map_reads2/BM-S.bam --referenceFasta /data/wangy80/TK117/data/00ref/Drosophila_melanogaster.BDGP6.46.dna_rm.toplevel.fa --runDir BM-S
 #swarm 2:
 BM-1/runWorkflow.py -m local -j $SLURM_CPUS_PER_TASK -g $((SLURM_MEM_PER_NODE / 1024))
 BM-21/runWorkflow.py -m local -j $SLURM_CPUS_PER_TASK -g $((SLURM_MEM_PER_NODE / 1024))

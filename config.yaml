@@ -1,0 +1,23 @@
+# Metadata
+reference:
+    abundant_rna_file: NA
+    ensembl_ver: r6.46
+    ensembl_gtf: data/00ref/dmel-all-r6.46.gtf
+    genome_build: dmel-r6.46
+    genome_file: data/00ref/dmel-all-chromosome-r6.46.fasta
+    star_index: 00ref
+    genome_source: flybase
+remove_duplicated_reads: false
+star_db:
+    sjdbOverhang: 74
+samples:
+    BM-1:
+    BM-21:
+    BM-24:
+    BM-3:
+    BM-46:
+    BM-4:
+    BM-5:
+    BM-6:
+    BM-7:
+    BM-S:

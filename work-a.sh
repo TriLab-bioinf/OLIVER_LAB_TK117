@@ -23,6 +23,8 @@ do
     awk '{if($1=="2L" || $1=="2R" || $1=="3L" || $1=="3R" || $1=="4" || $1=="X" || $1=="Y")print}' $file.map_2_diff_chroms.bed|cut -f4|sed 's#/.*$##g'|sort|uniq -c|awk '{if($1==2)print $2}' >$file.filter.reads.txt
     grep -f $file.filter.reads.txt $file.map_2_diff_chroms.bed > $file.filter.bed
     bedtools intersect -a ../w100000_s10000.bed -b $file.filter.bed -bed -c >$file.w100000_s10000.txt
+    bedtools intersect -a ../w100000_s10000.bed -b $file.filter.bed -wo >$file.w100000_s10000.txt2
+    awk 'BEGIN{OFS="\t"}{print $1":"$2"-"$3,$0}' $file.w100000_s10000.txt|sort -k1,1|join -t$'\t' -1 1 - -2 1 <(awk 'BEGIN{OFS="\t"}{print $1":"$2"-"$3,$0}' $file.w100000_s10000.txt2|sort -k1,1) >$file.w100000_s10000.join.txt
     awk 'BEGIN{OFS="\t"}{print $4,$1,$2,$3}' $file.filter.bed|sed 's#/1##g;s#/2##g' |sort -k1,1>$file.filter.txt
 done
 
@@ -33,3 +35,7 @@ do
     sed "s/test.txt/$file.txt/" test.conf > circos.conf
     circos -outputfile $file.png
 done
+
+awk '{if($2=="X" && $3<1.4e7 && $3>1.2e7 && $5>20)print}' BM-1.w100000_s10000.join.txt|sort -k5,5nr|cut -f12|sort -u|sed 's#/[1/2]##g'|grep -f - BM-1.filter.txt
+awk '{if($2=="X" && $3<1.2e7 && $3>1.1e7 && $5>20)print}' BM-6.w100000_s10000.join.txt|sort -k5,5nr|cut -f12|sort -u|sed 's#/[1/2]##g'|grep -f - BM-6.filter.txt
+awk '{if($2=="X" && $3<7e6 && $3>6.33e6 && $5>20)print}' BM-46.w100000_s10000.join.txt|sort -k5,5nr|cut -f12|sort -u|sed 's#/[1/2]##g'|grep -f - BM-46.filter.txt

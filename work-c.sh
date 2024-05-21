@@ -30,16 +30,24 @@ done
 
 ## nucmer alignment
 ##swarm:
-nucmer dmel.7chrs.rm.fa -p BM-1 /gpfs/gsfs12/users/wangy80/TK117/spades/BM-1/BM-1/scaffolds.fasta
-nucmer dmel.7chrs.rm.fa -p BM-3 /gpfs/gsfs12/users/wangy80/TK117/spades/BM-3/BM-3/scaffolds.fasta
-nucmer dmel.7chrs.rm.fa -p BM-4 /gpfs/gsfs12/users/wangy80/TK117/spades/BM-4/BM-4/scaffolds.fasta
-nucmer dmel.7chrs.rm.fa -p BM-5 /gpfs/gsfs12/users/wangy80/TK117/spades/BM-5/BM-5/scaffolds.fasta
-nucmer dmel.7chrs.rm.fa -p BM-6 /gpfs/gsfs12/users/wangy80/TK117/spades/BM-6/BM-6/scaffolds.fasta
-nucmer dmel.7chrs.rm.fa -p BM-7 /gpfs/gsfs12/users/wangy80/TK117/spades/BM-7/BM-7/scaffolds.fasta
-nucmer dmel.7chrs.rm.fa -p BM-21 /gpfs/gsfs12/users/wangy80/TK117/spades/BM-21/BM-21/scaffolds.fasta
-nucmer dmel.7chrs.rm.fa -p BM-24 /gpfs/gsfs12/users/wangy80/TK117/spades/BM-24/BM-24/scaffolds.fasta
-nucmer dmel.7chrs.rm.fa -p BM-46 /gpfs/gsfs12/users/wangy80/TK117/spades/BM-46/BM-46/scaffolds.fasta
-nucmer dmel.7chrs.rm.fa -p BM-S /gpfs/gsfs12/users/wangy80/TK117/spades/BM-S/BM-S/scaffolds.fasta
+nucmer dmel.7chrs.rm.fa --mum -p BM-1 /gpfs/gsfs12/users/wangy80/TK117/spades/BM-1/BM-1/scaffolds.fasta
+nucmer dmel.7chrs.rm.fa --mum -p BM-3 /gpfs/gsfs12/users/wangy80/TK117/spades/BM-3/BM-3/scaffolds.fasta
+nucmer dmel.7chrs.rm.fa --mum -p BM-4 /gpfs/gsfs12/users/wangy80/TK117/spades/BM-4/BM-4/scaffolds.fasta
+nucmer dmel.7chrs.rm.fa --mum -p BM-5 /gpfs/gsfs12/users/wangy80/TK117/spades/BM-5/BM-5/scaffolds.fasta
+nucmer dmel.7chrs.rm.fa --mum -p BM-6 /gpfs/gsfs12/users/wangy80/TK117/spades/BM-6/BM-6/scaffolds.fasta
+nucmer dmel.7chrs.rm.fa --mum -p BM-7 /gpfs/gsfs12/users/wangy80/TK117/spades/BM-7/BM-7/scaffolds.fasta
+nucmer dmel.7chrs.rm.fa --mum -p BM-21 /gpfs/gsfs12/users/wangy80/TK117/spades/BM-21/BM-21/scaffolds.fasta
+nucmer dmel.7chrs.rm.fa --mum -p BM-24 /gpfs/gsfs12/users/wangy80/TK117/spades/BM-24/BM-24/scaffolds.fasta
+nucmer dmel.7chrs.rm.fa --mum -p BM-46 /gpfs/gsfs12/users/wangy80/TK117/spades/BM-46/BM-46/scaffolds.fasta
+nucmer dmel.7chrs.rm.fa --mum -p BM-S /gpfs/gsfs12/users/wangy80/TK117/spades/BM-S/BM-S/scaffolds.fasta
+
+## only keep 1-to-1 alignments
+for i in `ls *delta`
+do
+	file=`basename $i .delta`
+	delta-filter -1 $i >$file.filter.delta
+done
+
 
 ## mummerplot
 for i in `ls *delta`
